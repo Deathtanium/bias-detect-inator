@@ -1,5 +1,6 @@
 import {app} from "./index.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut, sendPasswordResetEmail } from "firebase/auth";
+import { getUserTokens } from "./functions.js";
 
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -8,6 +9,12 @@ auth.onAuthStateChanged(user => {
     if (user) {
         document.querySelector("#logged-in").style.display = "";
         document.querySelector("#logged-out").style.display = "none";
+        document.querySelector("#user-id").innerHTML = auth.currentUser.uid;
+        getUserTokens().then(result => {
+            document.querySelector("#token-count").innerHTML = result.data.tokens;
+        }).catch(err => {
+            console.log(err);
+        })
     } else {
         document.querySelector("#logged-in").style.display = "none";
         document.querySelector("#logged-out").style.display = "";
@@ -92,7 +99,7 @@ googleButton.addEventListener("click", (e) => {
     })
 })
 
-const logoutButton = document.querySelector("#sign-out");
+const logoutButton = document.querySelector("#sign-out-btn");
 logoutButton.addEventListener("click", (e) => {
     e.preventDefault();
     logout(auth).then(() => {

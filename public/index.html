@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bias'o'meter</title>
   <script defer src="bundle.js"></script>
+  <script async
+    src="https://js.stripe.com/v3/buy-button.js">
+  </script>
 </head>
 <body>
   <!--
@@ -30,6 +33,26 @@
     - a simple navbar with the user's id, token count and logout button
     - an editable large input box to add text to
     - a button to submit the text
+    - a non-editable small input box to display the bias score
+    - a stripe payment button
   -->
+  <div id="logged-in" style="display: none;">
+    <div id="navbar">
+      <p id="user-id"></p>
+      <p id="token-count"></p>
+      <button id="sign-out-btn">Log out</button>
+    </div>
+    <div id="main">
+      <div id="input">
+        <textarea id="text-input" placeholder="Enter text here"></textarea>
+        <button id="get-bias-btn">Submit</button>
+        <p id="bias-score"></p>
+      </div>
+      <stripe-buy-button
+        buy-button-id="buy_btn_1OMGk5Ifs5QbCTFqUN805yWS"
+        publishable-key="pk_test_51N8O07Ifs5QbCTFqMBLPwmh7megh12HgOnHnIgdR1FZ6RWkp2oS7rKflyaJfs3Al9OYPps5jGRGPlHnbR6LPrSAh00wDu5u92i"
+      >
+      </stripe-buy-button>
+    </div>
 </body>
 </html>

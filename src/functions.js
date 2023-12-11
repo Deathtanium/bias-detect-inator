@@ -17,13 +17,13 @@ if (auth.currentUser) {
     })
 }
 
-document.querySelector("#getbias").addEventListener("click", () => {
-    getBias({text: document.querySelector("#inputfield").value}).then(result => {
-        document.querySelector("#biasfield").innerHTML = result.data.bias;
+document.querySelector("#get-bias-btn").addEventListener("click", () => {
+    getBias({text: document.querySelector("#text-input").value}).then(result => {
+        document.querySelector("#bias-score").innerHTML = result.data.bias;
     }).catch(err => {
         console.log(err);
     })
 })
 
 
-export {};
+export {getUserTokens};
