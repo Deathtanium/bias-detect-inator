@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bias'o'meter</title>
+  <script defer src="bundle.js"></script>
+</head>
+<body>
+  <!--
+    login page surrounded by a div with id="#logged-out"
+
+    the page is simple, centered and responsive
+  -->
+  <div id="logged-out">
+    <h1>Bias'o'meter</h1>
+    <p>Log in</p>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <p id="auth-error" style="color: red; visibility: hidden;"></p>
+    <button id="sign-in-btn">Log in</button>
+    <button id="sign-up-btn">Sign up</button>
+    <button id="forgot-btn">Forgot password</button>
+    <button id="sign-in-google-btn">Sign in with Google</button>
+  </div>
+
+  <!--
+    the main page, with id "#logged-in"
+    contains:
+    - a simple navbar with the user's id, token count and logout button
+    - an editable large input box to add text to
+    - a button to submit the text
+  -->
+</body>
+</html>
